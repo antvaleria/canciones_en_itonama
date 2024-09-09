@@ -31,8 +31,14 @@ Lincencia CC BY-NC-ND 4.0
 
     <div class="content">
         <p class="central-text">Escoje una palabra y repítela varias veces. Presiona play <i class="fas fa-play"></i> si necesitas una referencia de pronunciación.</p>
-        <div class="loader"></div>
+        <button type="button" id="start-btn" onclick="init()">Presiona y habla</button>
+        <div id="label-container"></div>
     </div>
+
+
+
+
+
 
     <script>
         // JavaScript to handle popup
@@ -88,12 +94,6 @@ Lincencia CC BY-NC-ND 4.0
     </script>
 
 
-
-
-
-<div>Teachable Machine Audio Model</div>
-<button type="button" id="start-btn" onclick="init()">Repite</button>
-<div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
 
@@ -124,7 +124,7 @@ Lincencia CC BY-NC-ND 4.0
 
         if (recognizer.isListening()) {
             recognizer.stopListening();
-            startBtn.textContent = "Repite";
+            startBtn.textContent = "Presiona y habla";
         } else {
             const classLabels = recognizer.wordLabels();
             const labelContainer = document.getElementById("label-container");
